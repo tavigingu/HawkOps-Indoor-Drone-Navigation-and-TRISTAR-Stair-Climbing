@@ -1,0 +1,16 @@
+TRISTAR — full three-signal fusion (Sobel + Gabor + DA2)
+Result: 4/4 flights successful (the final system configuration)
+
+With all three signals active, each detector compensates for the weaknesses of the
+others: Sobel and Gabor supply the per-step "up" signal and robustness to
+perspective, while DA2 provides the structural validation of the steps and
+recognises the landing through the loss of depth monotonicity.
+
+Flight 1 (f1): Successful.
+Flight 2 (f2): Successful.
+Flight 3 (f3): Successful.
+Flight 4 (f4): Successful.
+
+Takeaway: Only the full fusion succeeds on every flight — each signal covers the
+others' characteristic failure modes, which is why TRISTAR is the final
+configuration of the system.

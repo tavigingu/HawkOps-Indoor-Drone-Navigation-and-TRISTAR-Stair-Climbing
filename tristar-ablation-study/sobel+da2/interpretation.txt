@@ -1,0 +1,14 @@
+Sobel + DA2 ablation — structural "up" cue plus depth, no perspective robustness
+Result: 2/4 flights successful
+
+With Sobel and DA2 active (no Gabor), the behaviour becomes functional but unstable.
+
+Flight 1 (f1): The drone climbed slowly and uncertainly, reaching the landing at a
+               height of about two metres — higher than necessary.
+Flight 2 (f2): The drone rose so much that it lost the steps from view and
+               reported a false landing, touching down four steps too early.
+Flight 3 (f3): Successful.
+Flight 4 (f4): Almost correct, with a few useless lifts and a landing on the last
+               step instead of on the landing.
+
+Takeaway: Without Gabor's robustness to perspective, the flight height oscillates.

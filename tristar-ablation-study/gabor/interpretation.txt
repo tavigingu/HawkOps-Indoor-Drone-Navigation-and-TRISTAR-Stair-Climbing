@@ -1,0 +1,14 @@
+Gabor-only ablation — textural cue without depth
+Result: 2/4 flights successful
+
+Multi-scale Gabor filtering gives a stable detection of the repetitive step
+texture but, like Sobel, has no distance information.
+
+Flight 1 (f1): The drone rose well above the level of the last step.
+Flight 2 (f2): The drone approached the staircase too closely and touched the
+               second-to-last step with its propeller guard.
+Flight 3 (f3): Successful, but with a delayed stop and landing.
+Flight 4 (f4): Successful, but with a delayed stop and landing.
+
+Takeaway: Gabor adds robustness to perspective, but without depth the drone
+climbs too high and recognises the landing late.

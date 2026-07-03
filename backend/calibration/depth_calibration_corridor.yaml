@@ -1,0 +1,34 @@
+calibration_points:
+  "0": 0.5
+  "30": 0.7
+  "60": 1
+  "120": 3.0
+  "230": 4.0
+  "251": 5.0
+  "254": 5.2
+timestamp: 1772209404.8407862
+samples:
+  - x: 453
+    y: 206
+    pixel_value: 225
+    real_distance_m: 1.4
+  - x: 451
+    y: 169
+    pixel_value: 249
+    real_distance_m: 3.0
+  - x: 442
+    y: 214
+    pixel_value: 251
+    real_distance_m: 6.0
+  - x: 176
+    y: 283
+    pixel_value: 254
+    real_distance_m: 6.2
+  - x: 487
+    y: 265
+    pixel_value: 28
+    real_distance_m: 0.5
+  - x: 551
+    y: 528
+    pixel_value: 43
+    real_distance_m: 1.0

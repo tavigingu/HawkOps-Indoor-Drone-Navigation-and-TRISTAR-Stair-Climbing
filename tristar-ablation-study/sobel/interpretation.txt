@@ -1,0 +1,14 @@
+Sobel-only ablation — structural cue without depth
+Result: 2/4 flights successful
+
+With Sobel as the only virtual sensor, the drone correctly detects the
+horizontal step edges and receives a clear per-step "up" signal, but the
+absence of a depth reference leaves it "blind" at the end of the ramp.
+
+Flight 1 (f1): Successful.
+Flight 2 (f2): The drone kept climbing after the stairs had ended and hit the wall.
+Flight 3 (f3): Landed prematurely, before the end of the ramp.
+Flight 4 (f4): Successful.
+
+Takeaway: Sobel supplies the per-step "up" cue but, lacking a depth reference,
+cannot tell when the ramp ends — so it either overshoots the landing or lands early.

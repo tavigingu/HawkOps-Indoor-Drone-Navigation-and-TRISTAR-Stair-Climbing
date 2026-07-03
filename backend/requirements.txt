@@ -1,0 +1,11 @@
+djitellopy
+opencv-python
+fastapi
+uvicorn[standard]
+torch
+torchvision
+matplotlib
+numpy
+mediapipe
+ultralytics
+lap>=0.5.12

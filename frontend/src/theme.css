@@ -1,0 +1,311 @@
+/* ============================================================================
+   HawkOps — Glassy Design System
+   A dark, frosted-glass command UI. Emerald accent, deep void background,
+   layered ambient glows, soft inner highlights on every surface.
+   ========================================================================== */
+
+:root {
+  /* — Surface / background — */
+  --void: #05070a;
+  --void-2: #080b10;
+  --ink: #0b0f14;
+
+  /* — Accent — emerald, with a teal companion for gradients — */
+  --accent: #2fe38b;
+  --accent-bright: #46f5a3;
+  --accent-deep: #16b873;
+  --accent-teal: #1fd9c6;
+  --accent-glow: rgba(47, 227, 139, 0.55);
+  --accent-soft: rgba(47, 227, 139, 0.12);
+
+  /* — Status — */
+  --danger: #ff5a6a;
+  --warn: #ffb74d;
+  --info: #5aa9ff;
+
+  /* — Text — */
+  --text: #f2f5f7;
+  --text-dim: #9aa4ae;
+  --text-faint: #5d6670;
+
+  /* — Glass surfaces — */
+  --glass: rgba(255, 255, 255, 0.035);
+  --glass-2: rgba(255, 255, 255, 0.055);
+  --glass-strong: rgba(16, 21, 26, 0.62);
+  --stroke: rgba(255, 255, 255, 0.09);
+  --stroke-strong: rgba(255, 255, 255, 0.14);
+
+  /* — Effects — */
+  --blur: 22px;
+  --radius: 22px;
+  --radius-sm: 14px;
+  --radius-lg: 30px;
+  --shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.7);
+  --shadow-soft: 0 14px 40px -16px rgba(0, 0, 0, 0.6);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: var(--void);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Ambient page backdrop: deep void + drifting emerald nebulae + fine grid. */
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background:
+    radial-gradient(1200px 700px at 78% 12%, rgba(47, 227, 139, 0.10), transparent 60%),
+    radial-gradient(900px 600px at 12% 88%, rgba(31, 217, 198, 0.07), transparent 60%),
+    radial-gradient(600px 500px at 50% 50%, rgba(20, 30, 40, 0.5), transparent 70%),
+    var(--void);
+  overflow-x: hidden;
+}
+
+.app-shell::before {
+  /* subtle dot grid */
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-shell::after {
+  /* film grain */
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Reusable glass primitive ───────────────────────────────────────────── */
+.glass {
+  position: relative;
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  backdrop-filter: blur(var(--blur)) saturate(135%);
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(135%);
+  box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* top inner highlight that reads as a glass edge catching light */
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 40%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.glass-strong {
+  background: var(--glass-strong);
+  border: 1px solid var(--stroke-strong);
+  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.2px;
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: var(--glass-2);
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--stroke-strong);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent-bright), var(--accent-deep));
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #02110a;
+  font-weight: 700;
+  box-shadow: 0 10px 30px -8px var(--accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-accent:hover {
+  background: linear-gradient(135deg, #5dffb4, var(--accent));
+  box-shadow: 0 16px 40px -10px var(--accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--stroke);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ff6b78, #d23647);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  box-shadow: 0 10px 28px -10px rgba(255, 90, 106, 0.6);
+}
+
+.btn-warn {
+  background: linear-gradient(135deg, #ffc56b, #e0902f);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #1c1203;
+}
+
+/* shine sweep used on hero buttons */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: left 0.6s ease;
+}
+.btn-shine:hover::after {
+  left: 130%;
+}
+
+/* ── Pills / chips ──────────────────────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.34rem 0.7rem;
+  border-radius: 999px;
+  background: var(--glass-2);
+  border: 1px solid var(--stroke);
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  letter-spacing: 0.2px;
+}
+
+/* ── Text helpers ───────────────────────────────────────────────────────── */
+.text-grad {
+  background: linear-gradient(120deg, #fff 10%, var(--accent-bright) 55%, var(--accent-teal) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* small live status dot */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+.dot.red {
+  background: var(--danger);
+  box-shadow: 0 0 10px var(--danger);
+}
+.dot.amber {
+  background: var(--warn);
+  box-shadow: 0 0 10px var(--warn);
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.55; }
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* scrollbars */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover { background: rgba(47, 227, 139, 0.35); background-clip: padding-box; }
+
+::selection {
+  background: rgba(47, 227, 139, 0.28);
+  color: #fff;
+}

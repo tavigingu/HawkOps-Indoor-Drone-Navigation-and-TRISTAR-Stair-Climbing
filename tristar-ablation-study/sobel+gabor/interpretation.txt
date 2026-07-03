@@ -1,0 +1,16 @@
+Sobel + Gabor ablation — two structural cues, still no depth
+Result: 1/4 flights successful
+
+This combination unites two strong structural detectors but still lacks depth.
+
+Flight 1 (f1): A persistent "up" signal made the drone keep climbing without
+               sensing that the steps were receding; the mission was stopped to
+               avoid a ceiling collision.
+Flight 2 (f2): Same failure — kept climbing toward the ceiling.
+Flight 3 (f3): Successful, but the whole ascent ran at an excessive height above
+               the stairs.
+Flight 4 (f4): The drone landed before the landing, on the second-to-last step,
+               causing a collision on touchdown.
+
+Takeaway: Without depth, strong structural signals push the drone up
+indefinitely — it cannot tell that the ramp is ending.

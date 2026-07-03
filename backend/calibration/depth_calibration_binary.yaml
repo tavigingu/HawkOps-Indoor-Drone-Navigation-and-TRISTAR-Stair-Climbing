@@ -1,0 +1,15 @@
+calibration_points:
+  "0": 0.1
+  "199": 0.1
+  "200": 6.0
+  "255": 6.0
+timestamp: 1772209404.0
+samples:
+  - x: 480
+    y: 360
+    pixel_value: 0
+    real_distance_m: 0.1
+  - x: 480
+    y: 360
+    pixel_value: 200
+    real_distance_m: 6.0

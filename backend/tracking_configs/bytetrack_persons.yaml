@@ -1,0 +1,19 @@
+# ByteTrack config optimizat pentru tracking persoane
+tracker_type: bytetrack
+
+# Threshold-uri stricte — reduce ID-urile duplicate
+track_high_thresh: 0.60     # Detecție "sigură" doar cu confidence ridicată
+track_low_thresh: 0.25      # Recuperare track pierdut (nu creează ID nou)
+new_track_thresh: 0.75      # Prag ridicat pentru ID nou — și mai greu să se creeze ID nou
+
+# Buffer și matching
+track_buffer: 390           # 13 sec la 30fps — reține ID-ul mai mult când persoana dispare temporar
+# match_thresh MARE = matching TOLERANT (acceptă suprapunere mică între frame-uri).
+# Cheia ca aceeași persoană să rămână pe același ID când drona se rotește / persoana
+# se mișcă mult (bbox-ul sare mult). 0.85 cere doar ~15% suprapunere ca să facă match.
+match_thresh: 0.85
+
+fuse_score: true            # Folosește confidence în matching
+
+# Frame settings
+frame_rate: 30

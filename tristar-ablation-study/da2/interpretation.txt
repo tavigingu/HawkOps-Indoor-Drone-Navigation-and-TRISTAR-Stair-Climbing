@@ -1,0 +1,15 @@
+DA2-only ablation — geometric depth cue without structural confirmation
+Result: 0/4 flights successful (the most fragile configuration)
+
+Used alone, the signal derived from Depth Anything V2 proves the most fragile of
+the three virtual sensors.
+
+Flight 1 (f1): The drone kept climbing even after reaching the landing — the depth
+               monotonicity was imitated by a window whose sill reproduced the
+               distance profile of a staircase, fooling the detector.
+Flight 2 (f2): Same failure — climbed past the landing (window-sill false ramp).
+Flight 3 (f3): Same failure — climbed past the landing (window-sill false ramp).
+Flight 4 (f4): The drone crashed into the fifth step.
+
+Takeaway: The geometric depth validation needs the structural confirmation of
+Sobel and Gabor; on its own it is deceived by surfaces that mimic a stair ramp.

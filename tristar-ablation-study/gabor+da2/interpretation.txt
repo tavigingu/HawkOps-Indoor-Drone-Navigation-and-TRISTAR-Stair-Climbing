@@ -1,0 +1,16 @@
+Gabor + DA2 ablation — texture plus depth, missing the per-step "up" cue
+Result: 1/4 flights successful
+
+This combination removes exactly the per-step "up" signal that Sobel supplied.
+
+Flight 1 (f1): Although it reached the landing, the drone kept rising until it hit
+               the wall.
+Flight 2 (f2): The drone advanced decisively, issuing far more forward than up
+               commands, because the vertical cue from the step edges was missing.
+Flight 3 (f3): Although it reached the landing, the drone kept rising until it hit
+               the wall.
+Flight 4 (f4): The drone landed on the landing, but only after traversing it almost
+               completely, stopping near the far wall.
+
+Takeaway: Without Sobel, the drone loses the per-step vertical cue and overshoots
+forward.

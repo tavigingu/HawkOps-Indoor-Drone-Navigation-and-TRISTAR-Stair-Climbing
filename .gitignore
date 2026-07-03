@@ -1,0 +1,148 @@
+# --- Secrets / credentials ---
+# Env files (keep examples)
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Common key/cert formats
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.crt
+*.cer
+*.der
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# Cloud / tooling credentials
+**/.aws/
+**/.gcp/
+**/.azure/
+
+# Local secret folders
+**/secrets/
+**/secret/
+
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test / lint caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter
+.ipynb_checkpoints/
+
+
+# --- Node / Frontend (Vite) ---
+node_modules/
+.vite/
+dist/
+build/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# --- Logs / temp / OS ---
+*.log
+logs/
+tmp/
+.DS_Store
+Thumbs.db
+
+
+# --- ML / CV artifacts (usually large) ---
+# Model weights / checkpoints
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+*.tflite
+
+# Training outputs
+runs/
+wandb/
+mlruns/
+
+# Project-specific generated data
+backend/measurement_snapshots/
+
+
+# =========================================================================
+#  Project-specific (clean GitHub upload)
+# =========================================================================
+
+# --- Documentation & writing sources (kept locally, not part of the code) ---
+article/
+paper/
+thesis/
+docs/
+.claude/
+
+# --- Deprecated / superseded (mock_frontend became the base "frontend") ---
+frontend_deprecated/
+
+# --- Backend: flight recordings (never upload) ---
+backend/hallway_recordings/
+backend/stairwell_recordings/
+backend/stair_climber_recordings/
+**/*_recordings/
+
+# --- Backend: generated outputs & dev tooling ---
+backend/reports/
+backend/tools/
+
+# --- Local databases ---
+*.db
+*.db-shm
+*.db-wal
+backend/hawkops.db
+backend/_snap.db*
+
+# --- Unused / standalone / test scripts (kept on disk, not part of the running system) ---
+start_ai_services.sh
+tello_person_standalone.py
+backend/rc_test.py
+backend/simple_test.py
+backend/stair_climber.py
+backend/standalone_door_detect.py
+backend/navigation_backup.py
+backend/person_detection_debug.py
+
+# --- Third-party vendored repos (large, cloned separately; not our code) ---
+backend/Depth-Anything-V2/
+backend/fire-and-smoke-detection-yolov8/
