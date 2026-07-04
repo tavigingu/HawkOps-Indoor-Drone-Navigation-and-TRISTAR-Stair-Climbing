@@ -25,11 +25,14 @@ Around these, lightweight models add victim/pose detection, fire & smoke detecti
 
 **Autonomous stair climbing (TRISTAR)**
 
-<video src="media/videos/tristar-nav.mp4" controls muted width="100%"></video>
+https://github.com/user-attachments/assets/3d5d3528-6757-4b73-b5eb-1b701ca37751
+
 
 **Autonomous corridor navigation & door entry**
 
-<video src="media/videos/corridor_nav.mp4" controls muted width="100%"></video>
+https://github.com/user-attachments/assets/ecfd112e-a64a-44a2-bc59-aa99b21442ad
+
+
 
 > If the players do not appear inline, the clips are in [`media/videos/`](media/videos/) — [tristar-nav.mp4](media/videos/tristar-nav.mp4) · [corridor_nav.mp4](media/videos/corridor_nav.mp4).
 
