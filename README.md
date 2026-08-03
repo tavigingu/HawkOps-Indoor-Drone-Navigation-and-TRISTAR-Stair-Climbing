@@ -129,3 +129,19 @@ Released for academic and research use.
 <div align="center">
 <sub>Built to show how far low-cost, monocular-only autonomy can be pushed — one dark stairwell at a time.</sub>
 </div>
+
+If you use this work, please cite the accompanying paper ([arXiv:2607.03818](https://arxiv.org/abs/2607.03818)):
+O. Gîngu and S. Spînu, TRISTAR: Triple-Signal Stair Recognition and Vision-Only Indoor Navigation for Search-and-Rescue Micro-UAVs, arXiv:2607.03818 [cs.CV], 2026.
+
+\`\`\`
+@misc{gingu2026tristar,
+  title         = {TRISTAR: Triple-Signal Stair Recognition and Vision-Only Indoor
+                   Navigation for Search-and-Rescue Micro-UAVs},
+  author        = {G{\^i}ngu, Octavian and Sp{\^i}nu, Stelian},
+  year          = {2026},
+  eprint        = {2607.03818},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2607.03818}
+}
+\`\`\`
