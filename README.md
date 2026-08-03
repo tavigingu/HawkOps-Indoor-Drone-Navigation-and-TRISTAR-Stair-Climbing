@@ -136,7 +136,7 @@ If you use this work, please cite the accompanying paper
 > Vision-Only Indoor Navigation for Search-and-Rescue Micro-UAVs*,
 > arXiv:2607.03818 [cs.CV], 2026.
 
-\```bibtex
+```bibtex
 @misc{gingu2026tristar,
   title         = {TRISTAR: Triple-Signal Stair Recognition and Vision-Only
                    Indoor Navigation for Search-and-Rescue Micro-UAVs},
@@ -147,7 +147,7 @@ If you use this work, please cite the accompanying paper
   primaryClass  = {cs.CV},
   url           = {https://arxiv.org/abs/2607.03818}
 }
-\```
+```
 
 <div align="center">
 <sub>Built to show how far low-cost, monocular-only autonomy can be pushed — one dark stairwell at a time.</sub>
